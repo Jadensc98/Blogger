@@ -1,3 +1,12 @@
+<style>
+    body {
+        background-color: lightblue;
+    }
+    
+        
+        
+        </style>
+
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +20,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div class="form-group">
     <%= form.label :title %>
     <%= form.text_field :title, id: :post_title %>
-  </div>
+    
+</div>
 
-  <div class="field">
-    <%= form.label :author %>
+<div class="form-group">
+   <%= form.label :author %>
     <%= form.text_field :author, id: :post_author %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="form-group">
     <%= form.label :blog_entry %>
-    <%= form.text_area :blog_entry, id: :post_blog_entry %>
-  </div>
-
+    <%= form.text_area :blog_entry, id: :post_blog_entry, class: "form-control" %>
+    
+</div>
+ 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+<div class="field">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
 <% end %>
