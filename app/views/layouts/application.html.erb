@@ -23,7 +23,10 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#"></a>
-        <%= image_tag current_user.avatar.url, size: 50 %>
+         <% if user_signed_in? %>
+              <%= image_tag current_user.avatar.url, size: 50 %>
+    
+              <% end %>
     </div>
      <div class="container">
           <div class="pull-right">
